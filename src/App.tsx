@@ -1,4 +1,4 @@
-import './App.css'
+import { Prant } from '@/features/prants/components'
 import { useSystem } from '@/features/system/hooks'
 
 function App() { 
@@ -6,17 +6,14 @@ function App() {
 
   return (
     <div>
-      <div>seeds: {seeds}</div>
+      <div>{ seeds }</div>
       {
-        prants.map( prant => {
-          return (
-            <div key={ prant.prantClass }>
-              <div>{ prant.count }</div>
-              <div>{ prant.cost }</div>
-              <button disabled={ !increasableByClass(prant.prantClass) } onClick={ () => increaseByClass(prant.prantClass)}> Click </button>
-            </div>
-          )
-        })
+        prants.map( prant => 
+        <Prant 
+          prant={ prant }
+          disabled={ !increasableByClass(prant.prantClass)}
+          incrementHandler={ () => increaseByClass(prant.prantClass) }
+        />)
       }
     </div>
   )
