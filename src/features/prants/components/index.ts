@@ -1,1 +1,1 @@
-export * from "./Prant"
+export { Prant } from "./Prant"
